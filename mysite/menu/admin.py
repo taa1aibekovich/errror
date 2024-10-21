@@ -11,7 +11,7 @@ admin.site.register(Drink)
 
 @admin.register(Product)
 class ProductAdmin(TranslationAdmin):
-    list_display = ("product_name",)
+
 
     class Media:
         js = (
