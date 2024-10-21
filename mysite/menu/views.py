@@ -1,14 +1,18 @@
 from rest_framework import viewsets, filters
 from .models import Category, Product, Extra, Drink
-from .serializers import CategorySerializer, ProductSerializer, ExtraSerializer, DrinkSerializer
+from .serializers import CategoryListSerializer, ProductSerializer, ExtraSerializer, DrinkSerializer,  CategoryDetailSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
+class CategoryListViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    serializer_class = CategoryListSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['category_name']
 
+
+class CategoryDetailViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategoryDetailSerializer
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
